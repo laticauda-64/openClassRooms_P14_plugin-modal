@@ -25,9 +25,14 @@ const Modal = ({ onValidate, onCancel, show, title, children, ...others }) => {
     };
   }, []);
 
+  /**
+   * Avoid warning in React.strictMode
+   */
+  const nodeRef = React.useRef(null);
+
   return ReactDOM.createPortal(
-    <CSSTransition in={show} unmountOnExit timeout={{ enter: 0, exit: 300 }}>
-      <StyledModal onClick={onValidate}>
+    <CSSTransition nodeRef={nodeRef} in={show} unmountOnExit timeout={{ enter: 0, exit: 300 }}>
+      <StyledModal ref={nodeRef} onClick={onValidate}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <div className="modal-header">
             <h4 className="modal-title">{title}</h4>

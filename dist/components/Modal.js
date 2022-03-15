@@ -63,7 +63,14 @@ const Modal = _ref => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
+  /**
+   * Avoid warning in React.strictMode
+   */
+
+  const nodeRef = _react.default.useRef(null);
+
   return /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement(_reactTransitionGroup.CSSTransition, {
+    nodeRef: nodeRef,
     in: show,
     unmountOnExit: true,
     timeout: {
@@ -71,6 +78,7 @@ const Modal = _ref => {
       exit: 300
     }
   }, /*#__PURE__*/_react.default.createElement(StyledModal, {
+    ref: nodeRef,
     onClick: onValidate
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-content",
