@@ -1,9 +1,10 @@
 {
   "name": "p14-modal-component",
   "author": "YoannBDL",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "dependencies": {
+    "core-js": "^3.21.1",
     "react-transition-group": "^4.4.2"
   },
   "scripts": {
@@ -29,8 +30,8 @@
       "react-app/jest"
     ]
   },
-  "main": "dist/Modal.js",
-  "module": "dist/Modal.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist",
     "README.md"
@@ -38,5 +39,17 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/laticauda-64/ybdlassablere_P14_plugin-modal.git"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
