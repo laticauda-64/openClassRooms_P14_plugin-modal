@@ -81,13 +81,14 @@ const StyledModal = styled.div`
   opacity: 0;
   transition: all 0.3s ease-in-out;
   pointer-events: none;
+  z-index: 2;
 
-  .enter-done {
+  &.enter-done {
     opacity: 1;
     pointer-events: visible;
   }
 
-  .exit {
+  &.exit {
     opacity: 0;
   }
 
@@ -102,11 +103,11 @@ const StyledModal = styled.div`
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
 
-  .modal.enter-done .modal-content {
+  &.enter-done .modal-content {
     transform: translateY(0);
   }
 
-  .modal.exit .modal-content {
+  &.exit .modal-content {
     transform: translateY(-200px);
   }
 

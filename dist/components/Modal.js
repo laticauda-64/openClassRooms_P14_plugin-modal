@@ -13,9 +13,11 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _reactTransitionGroup = require("react-transition-group");
 
-require("./Modal.css");
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _templateObject;
 
 const _excluded = ["onValidate", "onCancel", "show", "title", "children"];
 
@@ -24,6 +26,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -66,8 +70,7 @@ const Modal = _ref => {
       enter: 0,
       exit: 300
     }
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal",
+  }, /*#__PURE__*/_react.default.createElement(StyledModal, {
     onClick: onValidate
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-content",
@@ -103,3 +106,5 @@ Modal.propTypes = {
   children: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.node), _propTypes.default.node]).isRequired,
   others: _propTypes.default.any
 };
+
+const StyledModal = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  font-family: \"Roboto\", sans-serif;\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0;\n  transition: all 0.3s ease-in-out;\n  pointer-events: none;\n  z-index: 2;\n\n  &.enter-done {\n    opacity: 1;\n    pointer-events: visible;\n  }\n\n  &.exit {\n    opacity: 0;\n  }\n\n  .modal-content {\n    width: 500px;\n    padding: 10px;\n    background-color: #fff;\n    transition: all 0.3s ease-in-out;\n    transform: translateY(-200px);\n    border: 2px solid #7e940e;\n    border-radius: 12px;\n    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);\n  }\n\n  &.enter-done .modal-content {\n    transform: translateY(0);\n  }\n\n  &.exit .modal-content {\n    transform: translateY(-200px);\n  }\n\n  .modal-header,\n  .modal-footer {\n    padding: 10px;\n  }\n\n  .modal-title {\n    margin: 0;\n  }\n\n  .modal-body {\n    padding: 10px;\n  }\n\n  .modal-footer button {\n    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,\n      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;\n    border: none;\n    padding: 10px 20px;\n    border-radius: 5px;\n    color: white;\n    background-color: #7e940e;\n    cursor: pointer;\n    margin-right: 10px;\n  }\n\n  .modal-footer button:hover {\n    background-color: rgb(88, 103, 9);\n    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);\n  }\n\n  .modal-footer button.alt {\n    border: 1px solid rgba(126, 148, 14, 0.5);\n    color: #7e940e;\n    background-color: white;\n  }\n\n  .modal-footer button.alt:hover {\n    background-color: rgba(126, 148, 14, 0.04);\n    border: 1px solid #7e940e;\n  }\n"])));
