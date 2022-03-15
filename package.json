@@ -29,8 +29,8 @@
       "react-app/jest"
     ]
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/Modal.js",
+  "module": "dist/Modal.js",
   "files": [
     "dist",
     "README.md"
