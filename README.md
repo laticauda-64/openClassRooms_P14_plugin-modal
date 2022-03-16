@@ -62,3 +62,7 @@ export default function App() {
   );
 }
 ```
+
+### NPM Repo
+
+[You can find the package here.](https://www.npmjs.com/package/p14-modal-component)
